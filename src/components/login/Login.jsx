@@ -32,13 +32,15 @@ function Login() {
         }
 
         if (email && password) {
-            axios.post("http://localhost:8080/api/auth/signin", { username: email, password: password, })
+            axios.post("http://localhost:8080/api/auth/signin", { username: email, password: password })
                 .then(function (response) {
-                    if (response.data.token) {
-                        setToken(response.data.token);
-                    }
+                    
+                    // if (response.data.token) {
+                    //     setToken(response.data.token);
+                    // }
 
                     if (response.data.id) {
+                        setToken(response.data.id);
                         setUserId(response.data.id);
                     }
 
